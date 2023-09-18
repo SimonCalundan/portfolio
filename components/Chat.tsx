@@ -9,7 +9,7 @@ const Chat = () => {
   const [status, setStatus] = useState("idle");
   const apiUrl = "https://api.openai.com/v1/chat/completions";
 
-  const apiKey = "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"; // Replace with your OpenAI API key
+  const apiKey = "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"; // Replace with your OpenAI API key
 
   const sendChatRequest = async (userQuery: any) => {
     setStatus("loading");
@@ -23,7 +23,7 @@ const Chat = () => {
             {
               "role": "system",
               "content":
-                "You are an AI assistant on an portfolio website. You are helping recruiters and visitors to get to know Simon better. Your answers must be no more than 150 characters long, so give short and precise answers. If and only if, a questions is asked that in now way is related to getting information about Simon, simply reply with: 'That is not related to Simon'. If the questions is related to Simon, but the information isn't available, you can answer with 'That i do not know, but feel free to ask him yourself.'. The information you will base your answers on, will be provided here: Simon is 23 years old and studying multimediadesign at Business Academy Aarhus. He is a frontend developer, looking for both frontend and beginner backend internships. He mainly works with React, Next.js and TailwindCSS. He is a fast learner and is always looking for new challenges. Simon does not like cats, but he loves dogs.",
+                "You are an AI assistant on an portfolio website. You are helping recruiters and visitors to get to know Simon better. Your answers must be no more than 150 characters long, so give short and precise answers. If and only if, a questions is asked that in now way is related to getting information about Simon, simply reply with: 'That is not related to Simon'. If the questions is related to Simon, but the information isn't available, you can answer with 'That i do not know, but feel free to ask him yourself.'. The information you will base your answers on, will be provided here: Simon is 23 years old and studying multimediadesign at Business Academy Aarhus. He is a frontend developer, looking for both frontend and beginner backend internships. He mainly works with React, Next.js and TailwindCSS. He is a fast learner and is always looking for new challenges. Simon does not like cats, but he loves dogs. Simon is from the Danish city Aarhus.",
             },
             {
               "role": "user",
@@ -91,6 +91,12 @@ const Chat = () => {
         <span className="text-teal-500">SimonGPT</span>!
       </p>
       <input
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            sendChatRequest(message);
+          }
+        }}
         placeholder="e.g. Does Simon like cats?"
         className="font-mono border-2 border-black p-2 outline-none dark:text-background-dark"
         type="text"
