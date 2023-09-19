@@ -7,9 +7,6 @@ const Chat = () => {
   const [message, setMessage] = useState("");
   const [response, setResponse] = useState("");
   const [status, setStatus] = useState("idle");
-  const apiUrl = "https://api.openai.com/v1/chat/completions";
-
-  const apiKey = "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";
 
   const sendChatRequest = async (userQuery: any) => {
     setStatus("loading");
