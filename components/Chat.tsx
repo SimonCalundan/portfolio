@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import Button from "./Button";
 
@@ -9,78 +9,25 @@ const Chat = () => {
   const [status, setStatus] = useState("idle");
   const apiUrl = "https://api.openai.com/v1/chat/completions";
 
-  const apiKey = "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"; // Replace with your OpenAI API key
+  const apiKey = "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";
 
   const sendChatRequest = async (userQuery: any) => {
     setStatus("loading");
-    try {
-      const response = await axios.post(
-        apiUrl,
-        {
-          model: "gpt-3.5-turbo",
-          max_tokens: 100, // Adjust the response length as needed
-          messages: [
-            {
-              "role": "system",
-              "content":
-                "You are an AI assistant on an portfolio website. You are helping recruiters and visitors to get to know Simon better. Your answers must be no more than 150 characters long, so give short and precise answers. If and only if, a questions is asked that in now way is related to getting information about Simon, simply reply with: 'That is not related to Simon'. If the questions is related to Simon, but the information isn't available, you can answer with 'That i do not know, but feel free to ask him yourself.'. The information you will base your answers on, will be provided here: Simon is 23 years old and studying multimediadesign at Business Academy Aarhus. He is a frontend developer, looking for both frontend and beginner backend internships. He mainly works with React, Next.js and TailwindCSS. He is a fast learner and is always looking for new challenges. Simon does not like cats, but he loves dogs. Simon is from the Danish city Aarhus.",
-            },
-            {
-              "role": "user",
-              "content": "Tell me about Simon's work experience.",
-            },
-            {
-              "role": "assistant",
-              "content":
-                "Simon has extensive work experience as a Frontend Developer at Cernel.",
-            },
-            {
-              "role": "user",
-              "content": "What projects has Simon worked on?",
-            },
-            {
-              "role": "assistant",
-              "content":
-                "Simon has worked on a variety of projects, most notably the Cernel website and platform, where he is in charge of Frontend Development and design choises.",
-            },
-            {
-              "role": "user",
-              "content": "What is Simon's education?",
-            },
-            {
-              "role": "assistant",
-              "content":
-                "Simon is currently studying Multimediadesign at Business Academy Aarhus. He is in his 3rd semester and is looking for an internship in early 2024.",
-            },
-            {
-              "role": "user",
-              "content": "Does Simon like cats?",
-            },
-            {
-              "role": "assistant",
-              "content":
-                "Simon is a dog person. I don't need to say more, do I?",
-            },
-            { "role": "user", "content": userQuery },
-          ],
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${apiKey}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
 
-      // Handle the chatbot's response here and update your component's state
+    try {
+      const response: any = await axios.post("/callchat", {
+        message: userQuery,
+      });
+      console.log(response);
       setResponse(response.data.choices[0].message.content);
-      setStatus("complete");
-      // Update the state or display the reply to the user
+      if (response.data.usage.completion_tokens === 70) {
+        setStatus("overflow");
+      } else {
+        setStatus("complete");
+      }
     } catch (error: any) {
-      console.error(
-        "Error sending chat request:",
-        error.response.data.error.message
-      );
+      setStatus("error");
+      console.log(error);
     }
   };
   return (
@@ -124,9 +71,31 @@ const Chat = () => {
           <p>{response}</p>
         </div>
       )}
-      {status === "error" && <p>Something went wrong</p>}
+      {status === "error" && (
+        <div>
+          <p className=" mb-4">Response:</p>
+          <p>Something went wrong. Blame Simon and try again.</p>
+        </div>
+      )}
+      {status === "overflow" && (
+        <div>
+          <p className=" mb-4">Response:</p>
+          <p>
+            Answers of this length might hurt Simon&apos;s wallet. Feel free to
+            hire him, or ask a simpler question.
+          </p>
+        </div>
+      )}
     </div>
   );
 };
+
+export async function getServerSideProps() {
+  return {
+    props: {
+      apiKey: process.env.API_KEY,
+    },
+  };
+}
 
 export default Chat;
