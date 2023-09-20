@@ -18,7 +18,6 @@ const config: Config = {
         "button-text": "#fffffe",
         "background-alt": "#d8eefe",
         "background-dark": "#16161a",
-        "accent": "#Cded41",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

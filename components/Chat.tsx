@@ -55,7 +55,6 @@ const Chat = () => {
         handleClick={() => sendChatRequest(message)}
       />
 
-      {/* Display the chatbot's response here */}
       {status === "loading" && (
         <div className=" flex flex-col gap-2 animate-in">
           <div className=" w-full bg-gray-300 h-4 animate-pulse animate-in"></div>
@@ -87,13 +86,5 @@ const Chat = () => {
     </div>
   );
 };
-
-export async function getServerSideProps() {
-  return {
-    props: {
-      apiKey: process.env.API_KEY,
-    },
-  };
-}
 
 export default Chat;
