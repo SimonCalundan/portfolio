@@ -6,14 +6,14 @@ import axios from "axios";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    subject: "",
+    from_name: "",
+    mail: "",
     message: "",
   });
 
   interface FormValues {
-    name: string;
-    subject: string;
+    from_name: string;
+    mail: string;
     message: string;
   }
 
@@ -79,23 +79,23 @@ const Contact = () => {
             <input
               placeholder="Enter your name"
               onChange={(e) => {
-                setFormData({ ...formData, name: e.target.value });
+                setFormData({ ...formData, from_name: e.target.value });
               }}
               className="p-2 border-background-dark border outline-none dark:text-background-dark"
               type="text"
               name="name"
               id="name"
             />
-            <label htmlFor="email">const subject = </label>
+            <label htmlFor="email">const email = </label>
             <input
-              placeholder="Enter the subject"
+              placeholder="Enter your email"
               onChange={(e) => {
-                setFormData({ ...formData, subject: e.target.value });
+                setFormData({ ...formData, mail: e.target.value });
               }}
               className="p-2 border-background-dark border outline-none dark:text-background-dark"
-              type="subject"
-              name="subject"
-              id="subject"
+              type="mail"
+              name="mail"
+              id="mail"
             />
             <label htmlFor="message">const message =</label>
             <textarea
