@@ -86,7 +86,7 @@ const Contact = () => {
               name="name"
               id="name"
             />
-            <label htmlFor="email">const topic = </label>
+            <label htmlFor="email">const subject = </label>
             <input
               placeholder="Enter the subject"
               onChange={(e) => {
