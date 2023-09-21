@@ -4,9 +4,9 @@ import Image from "next/image";
 import { ScrollReveal } from "reveal-on-scroll-react";
 const Landing = () => {
   return (
-    <section className="w-screen h-screen bg-background text-background-dark dark:bg-background-dark dark:text-background transition-all flex flex-col items-center justify-center">
+    <section className="w-screen h-screen max-h-[800px] bg-background text-background-dark dark:bg-background-dark dark:text-background transition-all flex flex-col items-center justify-center">
       {/* Content wrapper */}
-      <ScrollReveal.div className=" flex flex-col gap-4 mt-8 w-full items-center md:flex-row px-4 lg:px-32">
+      <ScrollReveal.div className=" flex flex-col gap-4 mt-8 w-full items-center md:flex-row px-4 lg:px-32 max-w-7xl">
         {/* text wrapper */}
         <div className=" flex flex-col items-center gap-2 w-full  ">
           <h1 className=" font-mono text-4xl md:text-5xl">
