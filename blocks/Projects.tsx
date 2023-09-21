@@ -26,7 +26,7 @@ const Projects = () => {
           <ProjectHighlight
             number={3}
             title="Kaika Music"
-            description="Home page for Kaika Music, a music production company. Made as an exam project at BAAA. Build using Next.js, TypeScript and TailwindCSS."
+            description="Home page for Kaika Music, a music booking company. Made as an exam project at BAAA. Build using Next.js, TypeScript and TailwindCSS."
             imgPath="/kaika.png"
             liveLink="https://kaika-music.vercel.app/"
             gitLink="https://github.com/SimonCalundan/KaikaMusic"
