@@ -35,14 +35,14 @@ const ProjectHighlight: React.FC<ProjectHighlightProps> = ({
         {/* Links */}
         <div className=" text-2xl my-2 flex gap-2 items-center">
           <a
-            className="hover:scale-105 transition-all"
+            className="hover:scale-105 transition-all hover:text-teal-500"
             href={liveLink}
             target="_blank"
           >
             <AiOutlineLink />
           </a>
           <a
-            className={`hover:scale-105 transition-all ${
+            className={`hover:scale-105 hover:text-teal-500 transition-all ${
               gitLink === "#" && "opacity-50 pointer-events-none"
             } `}
             href={gitLink}
@@ -55,12 +55,12 @@ const ProjectHighlight: React.FC<ProjectHighlightProps> = ({
       {/* Image wrapper */}
       <div className="w-full md:w-1/2 flex justify-center">
         <a
-          className="hover:scale-105 active:scale-95 transition-all duration-500"
+          className="hover:scale-105 active:scale-95 transition-all duration-500 ease-in-out"
           href={liveLink}
           target="_blank"
         >
           <Image
-            className="border-background-dark border"
+            className="border-background-dark border "
             src={imgPath}
             width={500}
             height={500}

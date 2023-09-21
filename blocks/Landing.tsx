@@ -42,14 +42,14 @@ const Landing = () => {
       </ScrollReveal.div>
       <a
         href="#about"
-        className=" font-mono text-xl mt-6 flex flex-col gap-2 items-center animate-pulse "
+        className=" font-mono text-xl mt-6 flex flex-col gap-2 items-center animate-pulse hover:text-teal-500 transition-all group "
       >
         scrollDown();{" "}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          className="w-8 h-8 text-background-dark dark:text-background transition-all "
+          className="w-8 h-8 text-background-dark dark:text-background transition-all group-hover:text-teal-500 "
         >
           <path
             fillRule="evenodd"
