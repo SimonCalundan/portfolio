@@ -28,14 +28,14 @@ const About = () => {
         <p className=" underline underline-offset-8">Socials:</p>
         <div className="flex items-center gap-4 text-3xl">
           <a
-            className="hover:scale-105 transition-all"
+            className="hover:scale-105 hover:text-teal-500 transition-all"
             href="https://www.linkedin.com/in/simoncalundan/"
             target="_blank"
           >
             <AiFillLinkedin />
           </a>
           <a
-            className="hover:scale-105 transition-all"
+            className="hover:scale-105 hover:text-teal-500 transition-all"
             href="https://github.com/SimonCalundan"
             target="_blank"
           >
