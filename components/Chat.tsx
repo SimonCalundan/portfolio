@@ -57,9 +57,9 @@ const Chat = () => {
 
       {status === "loading" && (
         <div className=" flex flex-col gap-2 animate-in">
-          <div className=" w-full bg-gray-300 h-4 animate-pulse animate-in"></div>
-          <div className=" w-4/5 bg-gray-300 h-4 animate-pulse animate-in"></div>
-          <div className=" w-3/4 bg-gray-300 h-4 animate-pulse animate-in"></div>
+          <div className=" w-full bg-gray-300 h-4 animate-pulse"></div>
+          <div className=" w-4/5 bg-gray-300 h-4 animate-pulse delay-100"></div>
+          <div className=" w-3/4 bg-gray-300 h-4 animate-pulse delay-150"></div>
         </div>
       )}
       {status === "complete" && (
